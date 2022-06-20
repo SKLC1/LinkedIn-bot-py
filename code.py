@@ -37,3 +37,14 @@ time.sleep(2)
 
 filter_by_people_btn = driver.find_element_by_css_selector("button[aria-pressed='false']")
 filter_by_people_btn.click()
+time.sleep(2)
+
+all_btns = driver.find_elements_by_tag_name("button")
+connect_btns_arr = [btn for btn in all_btns if btn.text == "Connect"]
+
+for btn in connect_btns_arr:
+  driver.execute_script("arguments[0].click();",btn)
+  time.sleep(2)
+  send = driver.find_element_by_xpath('//button[@aria-label="Send now"]')
+  driver.execute_script("arguments[0].click();", send)
+  time.sleep(2)
