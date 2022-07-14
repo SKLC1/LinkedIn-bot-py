@@ -4,8 +4,8 @@ import keyboard
 import time
 
 
-email = "nir123211@gmail.com"
-password = "Nir322776790"
+email = "tamirgalim@gmail.com"
+password = "asdfasdf12345"
 
 
 PATH = "C:\Program Files (x86)\ChromeWebDriver\chromedriver.exe"
@@ -39,6 +39,9 @@ filter_by_people_btn = driver.find_element_by_css_selector("button[aria-pressed=
 filter_by_people_btn.click()
 time.sleep(2)
 
+#
+counter = {}
+# code block to excute after continuing to the next [age]
 all_btns = driver.find_elements_by_tag_name("button")
 connect_btns_arr = [btn for btn in all_btns if btn.text == "Connect"]
 
@@ -47,4 +50,11 @@ for btn in connect_btns_arr:
   time.sleep(2)
   send = driver.find_element_by_xpath('//button[@aria-label="Send now"]')
   driver.execute_script("arguments[0].click();", send)
+  dismiss = driver.find_element_by_xpath('//button[@aria-label="Dismiss"]')
+  driver.execute_script("arguments[0].click();", dismiss)
   time.sleep(2)
+  counter += 1
+
+# turn page func
+
+
